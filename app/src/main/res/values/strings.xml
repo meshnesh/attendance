@@ -4,4 +4,6 @@
     <string name="awaiting_scan">Awaiting scan...</string>
     <string name="check_in">Check In</string>
     <string name="check_out">Check Out</string>
+    <string name="tag_id">Tag ID</string>
+    <string name="status">Status</string>
 </resources>

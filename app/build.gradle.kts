@@ -46,6 +46,13 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
     implementation(libs.material)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.runtime.android)
+    implementation(libs.room.ktx)
+    implementation(libs.room.paging)
+
+    testImplementation(libs.room.testing)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
