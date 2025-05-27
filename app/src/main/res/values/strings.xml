@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Church Attendance</string>
+    <string name="smart_attendance">Smart Attendance</string>
+    <string name="awaiting_scan">Awaiting scan...</string>
+    <string name="check_in">Check In</string>
+    <string name="check_out">Check Out</string>
+</resources>

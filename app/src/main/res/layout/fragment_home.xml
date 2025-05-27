@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/homeFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/smart_attendance"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Scan Status -->
+        <TextView
+            android:id="@+id/tvTagStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center"
+            android:text="@string/awaiting_scan"
+            android:background="@color/chip_background_color"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Check In Button -->
+        <Button
+            android:id="@+id/btnCheckIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="?attr/colorPrimary"
+            android:text="@string/check_in"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvTagStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp" />
+
+        <!-- Check Out Button -->
+        <Button
+            android:id="@+id/btnCheckOut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D32F2F"
+            android:text="@string/check_out"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/btnCheckIn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
