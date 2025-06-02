@@ -18,7 +18,6 @@ import com.mw.churchattendance.ui.taglist.TagViewModel
 import com.mw.churchattendance.util.NfcTagScannedListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 open class BaseActivity : AppCompatActivity() {

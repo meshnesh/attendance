@@ -45,7 +45,7 @@
 
     <style name="PostSplash.mw.Theme" parent="Base.mwTheme">
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:windowLightNavigationBar" >true</item>
     </style>
 
     <!--Base custom theme which will be shared in light theme-->
@@ -105,7 +105,7 @@
         <item name="alphaEmphasisDisabled">@dimen/alpha_emphasis_disabled</item>
 
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:windowLightNavigationBar" >true</item>
 
         <!--Remap legacy AppCompat attributes to MaterialComponent attributes-->
         <item name="colorPrimaryDark">?colorPrimaryVariant</item>
@@ -113,7 +113,7 @@
 
         <item name="android:statusBarColor">?colorPrimaryVariant</item>
         <item name="android:navigationBarColor">@color/color_surface</item>
-        <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">
+        <item name="android:navigationBarDividerColor" >
             @color/color_background
         </item>
     </style>
