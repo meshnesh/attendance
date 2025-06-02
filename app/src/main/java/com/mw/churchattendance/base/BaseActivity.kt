@@ -5,24 +5,29 @@ import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.mw.churchattendance.data.local.entity.NfcTag
 import com.mw.churchattendance.data.local.entity.TagType
 import com.mw.churchattendance.ui.taglist.TagViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 open class BaseActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: TagViewModel
+    private val viewModel: TagViewModel by viewModels()
+
     private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize NFC
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
         if (nfcAdapter == null) {
             Toast.makeText(this, "NFC not supported on this device", Toast.LENGTH_LONG).show()
@@ -58,53 +63,37 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun handleScannedTag(tagId: String) {
+        Log.d("TAG_DEBUG", "handlingScannedTag tags: $tagId")
         val now = System.currentTimeMillis()
 
         viewModel.getTagById(tagId) { existingTag ->
             lifecycleScope.launch {
-                if (tagId.startsWith("C")) {
-                    if (existingTag == null) {
-                        viewModel.insertTag(
-                            NfcTag(
-                                tagId = tagId,
-                                childName = "Unknown Child", // optionally update this
-                                tagType = TagType.WRISTBAND,
-                                isCheckedIn = true,
-                                lastActionTimestamp = now
-                            )
+                if (existingTag == null) {
+                    viewModel.insertTag(
+                        NfcTag(
+                            tagId = tagId,
+                            childName = "Unknown Child",
+                            tagType = TagType.FOB,
+                            isCheckedIn = true,
+                            lastActionTimestamp = now
                         )
-                        Toast.makeText(this@BaseActivity, "Child checked in", Toast.LENGTH_SHORT).show()
-                    } else {
-                        viewModel.updateTag(
-                            existingTag.copy(
-                                isCheckedIn = true,
-                                lastActionTimestamp = now
-                            )
-                        )
-                        Toast.makeText(this@BaseActivity, "Child re-checked in", Toast.LENGTH_SHORT).show()
-                    }
-                } else if (tagId.startsWith("P")) {
-                    val childToCheckOut = viewModel.allTags.value.firstOrNull { it.isCheckedIn }
-                    if (childToCheckOut != null) {
-                        viewModel.updateTag(
-                            childToCheckOut.copy(
-                                isCheckedIn = false,
-                                isCheckedOut = true,
-                                lastActionTimestamp = now
-                            )
-                        )
-                        Toast.makeText(this@BaseActivity, "Child checked out", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this@BaseActivity, "No child found for checkout", Toast.LENGTH_SHORT).show()
-                    }
+                    )
+                    Toast.makeText(this@BaseActivity, "Tag added & checked in", Toast.LENGTH_SHORT).show()
+                } else {
+                    val updated = existingTag.copy(
+                        isCheckedIn = !existingTag.isCheckedIn,
+                        isCheckedOut = existingTag.isCheckedIn,
+                        lastActionTimestamp = now
+                    )
+                    viewModel.updateTag(updated)
+
+                    val action = if (updated.isCheckedIn) "checked in" else "checked out"
+                    Toast.makeText(this@BaseActivity, "Tag $action", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
-    /**
-     * Child classes should override this method to handle the tag.
-     */
     open fun onNfcTagScanned(tagId: String?) {
         Toast.makeText(this, "Scanned Tag: $tagId", Toast.LENGTH_SHORT).show()
     }

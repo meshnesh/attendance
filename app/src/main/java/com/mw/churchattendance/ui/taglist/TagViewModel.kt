@@ -4,47 +4,40 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mw.churchattendance.data.local.entity.NfcTag
 import com.mw.churchattendance.data.repository.TagRepository
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.map
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@HiltViewModel
+class TagViewModel @Inject constructor(
+    private val repository: TagRepository
+) : ViewModel() {
 
-class TagViewModel(private val repository: TagRepository) : ViewModel() {
+    private val _allTags = MutableStateFlow<List<NfcTag>>(emptyList())
+    val allTags = _allTags.asStateFlow()
 
-    val allTags: StateFlow<List<NfcTag>> = repository.allTags
-        .stateIn(
-            viewModelScope,
-            SharingStarted.WhileSubscribed(5000),
-            emptyList()
-        )
-
-    fun insertTag(tag: NfcTag) {
+    init {
         viewModelScope.launch {
-            repository.insert(tag)
+            repository.allTags.collect {
+                _allTags.value = it
+            }
         }
     }
 
-    fun updateTag(tag: NfcTag) {
+    fun insertTag(tag: NfcTag) = viewModelScope.launch {
+        repository.insert(tag)
+    }
+
+    fun updateTag(tag: NfcTag) = viewModelScope.launch {
+        repository.update(tag)
+    }
+
+    fun getTagById(tagId: String, onResult: (NfcTag?) -> Unit) {
         viewModelScope.launch {
-            repository.update(tag)
-        }
-    }
-
-    fun checkOutChild(tagId: String) = viewModelScope.launch {
-        repository.checkOutChild(tagId)
-    }
-
-
-    fun getTagById(tagId: String, onResult: (NfcTag?) -> Unit) = viewModelScope.launch {
-        val tag = repository.getByTagId(tagId)
-        onResult(tag)
-    }
-
-    fun deleteTag(tag: NfcTag) {
-        viewModelScope.launch {
-            repository.delete(tag)
+            val tag = repository.getByTagId(tagId)
+            onResult(tag)
         }
     }
 }

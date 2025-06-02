@@ -30,6 +30,6 @@ interface NfcTagDao {
     @Query("UPDATE nfc_tags SET isCheckedIn = :checkedIn, lastActionTimestamp = :timestamp WHERE tagId = :tagId")
     suspend fun updateCheckInStatus(tagId: String, checkedIn: Boolean, timestamp: Long)
 
-    @Query("UPDATE nfc_tags SET isCheckedOut = 1 WHERE tagId = :tagId")
+    @Query("UPDATE nfc_tags SET isCheckedIn = 0, isCheckedOut = 1 WHERE tagId = :tagId")
     suspend fun markAsCheckedOut(tagId: String)
 }

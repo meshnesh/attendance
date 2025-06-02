@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -48,12 +50,22 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.room.runtime)
-    implementation(libs.room.runtime.android)
     implementation(libs.room.ktx)
     implementation(libs.room.paging)
+
+    implementation(libs.hilt.android)
+
+    ksp(libs.hilt.compiler)
+    ksp(libs.room.ksp)
 
     testImplementation(libs.room.testing)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    constraints {
+        implementation("com.squareup:javapoet:1.13.0") {
+            because("Fix Hilt crash due to missing method canonicalName()")
+        }
+    }
 }

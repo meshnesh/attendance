@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import com.mw.churchattendance.databinding.ActivityMainBinding
 import com.mw.churchattendance.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
 
