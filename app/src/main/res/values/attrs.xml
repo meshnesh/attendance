@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PinView">
+        <attr name="digitLength" format="integer" />
+        <attr name="passCode" format="string" />
+    </declare-styleable>
+
+    <attr name="alphaEmphasisHigh" format="float" />
+    <attr name="alphaEmphasisMedium" format="float" />
+    <attr name="alphaEmphasisDisabled" format="float" />
+
+    <!--Common attributes-->
+    <attr name="colorFillColor" format="color" />
+    <attr name="colorStrokeColor" format="color" />
+
+    <!--Label view attributes-->
+    <declare-styleable name="LabelLinkView">
+        <attr name="android:text" />
+        <attr name="leadingIcon" format="integer" />
+        <attr name="linkUrl" format="string" />
+    </declare-styleable>
+
+    <!--Color attribute view attributes-->
+    <declare-styleable name="ColorAttributeView">
+        <attr name="android:text" />
+        <attr name="colorFillColor" />
+        <attr name="colorStrokeColor" />
+    </declare-styleable>
+
+    <!--Color dot view attributes-->
+    <declare-styleable name="ColorDotView">
+        <attr name="colorFillColor" />
+        <attr name="colorStrokeColor" />
+    </declare-styleable>
+
+    <!--Type attribute view attributes-->
+    <declare-styleable name="TypeAttributeView">
+        <attr name="android:text" />
+        <attr name="previewText" format="string" />
+        <attr name="previewTextAppearance" format="reference" />
+        <attr name="previewAlpha" format="reference" />
+    </declare-styleable>
+
+    <!--Shape attribute view attributes-->
+    <declare-styleable name="ShapeAttributeView">
+        <attr name="android:text" />
+        <attr name="shapeSizeLetter" format="string" />
+        <attr name="shapeFillColor" format="color" />
+        <attr name="shapeStrokeColor" format="color" />
+        <attr name="shapeAppearanceAttr" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="PrefixAutoComplete">
+        <attr name="prefix" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="StepView">
+        <attr name="step1state" format="string" />
+        <attr name="step2state" format="string" />
+        <attr name="step3state" format="string" />
+
+        <attr name="step1Title" format="string" />
+        <attr name="step2Title" format="string" />
+        <attr name="step3Title" format="string" />
+    </declare-styleable>
+
+
+</resources>

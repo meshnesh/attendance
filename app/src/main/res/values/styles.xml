@@ -1,0 +1,403 @@
+<resources>
+
+    <!--Base Default Button Theme for api 16 and above-->
+    <style name="Base.DefaultButton" parent="Widget.AppCompat.Button">
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:insetLeft">@dimen/keyline_0</item>
+        <item name="android:insetRight">@dimen/keyline_0</item>
+    </style>
+
+    <!--Base Default White Button Theme for api 16 and above-->
+    <style name="Base.DefaultButton.White" parent="Widget.AppCompat.Button">
+        <item name="backgroundTint">@android:color/white</item>
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="cornerRadius">@dimen/keyline_5</item>
+    </style>
+
+    <!--Base Default Dark Button Theme for api 16 and above-->
+    <style name="Base.DefaultButton.Dark" parent="Widget.AppCompat.Button">
+        <item name="backgroundTint">@color/colorPantone9C</item>
+    </style>
+
+    <style name="Base.QuickActionButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="backgroundTint">@android:color/white</item>
+        <item name="iconTint">@null</item>
+        <item name="cornerRadius">@dimen/keyline_1</item>
+    </style>
+
+    <!--Default Button Theme-->
+    <style name="DefaultButton" parent="Base.DefaultButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">13sp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="DefaultButton.RoundedEdges" parent="Base.DefaultButton.White">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="cornerRadius">@dimen/keyline_2</item>
+    </style>
+
+    <!-- Default White Button Theme Round-->
+    <style name="DefaultButton.WhiteRound" parent="Base.DefaultButton.White">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+    </style>
+
+    <style name="CustomButton.White" parent="Base.DefaultButton.White">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="strokeColor">?attr/colorPrimary</item>
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="strokeWidth">@dimen/one_dimension</item>
+        <item name="android:padding">@dimen/margin_padding_size_small</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+    </style>
+
+    <!--style for round corner button-->
+    <style name="DefaultButton.Round" parent="Base.DefaultButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textAppearance">?textAppearanceButton</item>
+    </style>
+
+    <!--style for oulined corner button-->
+    <style name="DefaultButton.Outline" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="strokeColor">?attr/colorPrimary</item>
+        <item name="backgroundColor">@color/color_surface</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+    </style>
+
+    <!--style for dark round corner button-->
+    <style name="DefaultButton.Dark" parent="Base.DefaultButton.Dark">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+    </style>
+
+    <style name="QuickActionButtonStyle" parent="Base.QuickActionButtonStyle">
+        <item name="android:layout_width">144dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:paddingStart">@dimen/margin_padding_size_medium</item>
+        <item name="android:paddingLeft">@dimen/margin_padding_size_medium</item>
+        <item name="android:paddingTop">@dimen/margin_padding_size_x_small</item>
+        <item name="android:paddingBottom">@dimen/margin_padding_size_x_small</item>
+        <item name="android:insetTop">@dimen/zero_dimension</item>
+        <item name="android:insetBottom">@dimen/zero_dimension</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorPantone11C</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="iconTint">@null</item>
+        <item name="cornerRadius">@dimen/keyline_1</item>
+        <item name="android:drawablePadding">@dimen/margin_padding_size_small</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="TextAppearance.Collapsed" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Expanded" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">@dimen/text_size_header5</item>
+    </style>
+
+    <style name="HintText" parent="Theme.MaterialComponents">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+        <item name="android:fontFamily">@font/futura_book</item>
+    </style>
+
+    <style name="TextInputLayoutAppearance" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="boxStrokeColor">?attr/colorOnSurface</item>
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+        <item name="colorControlActivated">@color/colorPantone11C</item>
+        <item name="colorControlHighlight">@color/colorPantone11C</item>
+        <item name="android:textColorHint">@color/colorPantone11C</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/keyline_1</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/keyline_1</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/keyline_1</item>
+        <item name="boxCornerRadiusTopStart">@dimen/keyline_1</item>
+        <item name="errorTextAppearance">@style/TextViewAppearance</item>
+        <item name="helperTextTextAppearance">@style/HelperTextAppearance</item>
+    </style>
+
+    <style name="TextEditTextAppearance">
+        <item name="boxStrokeColor">?attr/colorOnSurface</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textColorHint">@color/colorPantone11C</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="AutoCompleteAppearance">
+        <item name="boxStrokeColor">?attr/colorOnSurface</item>
+        <item name="android:textColorHint">?attr/colorOnSurface</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+        <item name="android:paddingTop">@dimen/margin_padding_size_small</item>
+        <item name="android:paddingBottom">@dimen/margin_padding_size_small</item>
+        <item name="android:paddingStart">@dimen/margin_padding_size_small</item>
+        <item name="android:paddingLeft">@dimen/margin_padding_size_small</item>
+        <item name="cornerRadius">@dimen/keyline_1</item>
+    </style>
+
+    <style name="EditTextAppearance">
+        <item name="android:textColorHint">?attr/colorOnSurface</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="HelperTextAppearance">
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextViewAppearance">
+        <item name="android:fontFamily">@font/futura_book</item>
+    </style>
+
+    <style name="TextViewAppearanceBold">
+        <item name="android:fontFamily">@font/futura_extra_black</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="TextViewAppearanceSemiBold">
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textAppearance">?textAppearanceBody2</item>
+    </style>
+
+    <!--text view semibold-->
+    <style name="TextViewAppearanceMedium">
+        <item name="android:fontFamily">@font/futura_medium</item>
+        <item name="android:textAppearance">?textAppearanceBody2</item>
+    </style>
+
+    <style name="BoldColored" parent="@android:style/Widget.TextView">
+        <item name="android:fontFamily">@font/futura_extra_black</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="MpesaCardTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/colorPantone11C</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="CheckBox" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorControlNormal">?attr/colorOnSurface</item>
+        <item name="colorControlActivated">?attr/colorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.TextView" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="AppTheme.TabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorPrimary</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">fixed</item>
+        <item name="android:background">?attr/colorSurface</item>
+        <item name="tabSelectedTextColor">?attr/colorPrimary</item>
+        <item name="tabTextColor">@color/colorPantone11C</item>
+    </style>
+
+    <style name="tabText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="tabTextSmall" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/futura_book</item>
+    </style>
+
+    <style name="lineView">
+        <item name="android:background">@color/black</item>
+        <item name="android:alpha">0.3</item>
+    </style>
+
+    <style name="SendMoneyLabelTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_padding_size_x_small</item>
+        <item name="android:drawablePadding">@dimen/margin_padding_size_small</item>
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textColor">@color/colorPantone11C</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+
+    </style>
+
+    <style name="SendMoneyDataTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_padding_size_x_small</item>
+        <item name="android:drawablePadding">@dimen/margin_padding_size_small</item>
+        <item name="android:fontFamily">@font/futura_extra_black</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/colorPantone11C</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+    <style name="PinOnAppNumbers">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">@dimen/text_size_header5</item>
+    </style>
+
+    <style name="AutoCompleteTextView">
+        <item name="android:fontFamily">@font/futura_book</item>
+    </style>
+
+    <!--Tab font appearance-->
+    <style name="TabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="indicatorTab" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="tabGravity">center</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">7.5dp</item>
+        <item name="tabPaddingEnd">7.5dp</item>
+        <item name="tabBackground">@drawable/tab_indicator</item>
+        <item name="android:background">@color/transparent_color</item>
+    </style>
+
+    <style name="ConstraintLayoutCost">
+        <item name="android:paddingTop">@dimen/margin_padding_size_small</item>
+        <item name="android:paddingBottom">@dimen/margin_padding_size_small</item>
+    </style>
+
+    <style name="RadioButtonAppearance" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="colorControlNormal">@color/colorPantone9C</item>
+        <item name="colorControlActivated">?attr/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/colorPantone11C</item>
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="android:textAppearance">?textAppearanceButton</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="SpinnerTheme" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:background">@drawable/spinner_background</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textAppearance">@style/TextViewAppearance</item>
+        <item name="minHeight">@dimen/standard_touch_size</item>
+        <item name="android:padding">@dimen/margin_padding_size_xsmall</item>
+    </style>
+
+    <style name="SpinnerTheme.NoOutline">
+        <item name="android:background">@drawable/spinner_background_no_outline</item>
+    </style>
+
+    <style name="RatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressTint">?attr/colorPrimary</item>
+        <item name="android:secondaryProgressTint">@color/colorPantone11C</item>
+    </style>
+
+    <style name="CostCalcTextMedium" parent="TextViewAppearanceMedium">
+        <item name="android:layout_marginTop">@dimen/margin_padding_size_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_padding_size_small</item>
+    </style>
+
+    <style name="Pay.Green" parent="Base.DefaultButton.White">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="strokeColor">?attr/colorPrimary</item>
+        <item name="strokeWidth">@dimen/one_dimension</item>
+        <item name="android:padding">@dimen/margin_padding_size_small</item>
+        <item name="cornerRadius">18dp</item>
+        <item name="android:fontFamily">@font/futura_heavy</item>
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="RadioButtonStyle" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">?attr/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="fontFamily">@font/futura_medium</item>
+    </style>
+
+    <style name="choiceChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textAppearance">@style/chipText</item>
+        <item name="android:layout_width">@dimen/list_one_liner_with_icon_size</item>
+        <item name="android:textAlignment">center</item>
+        <item name="chipBackgroundColor">@drawable/chip_background_color</item>
+        <item name="android:textColor">@drawable/chip_text_color</item>
+    </style>
+
+    <style name="chipText" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/futura_book</item>
+        <item name="android:textSize">@dimen/text_size_overline</item>
+    </style>
+
+    <style name="AppDialogTheme" parent="android:style/Theme.Translucent">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="LineCustomBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_bar_curved</item>
+        <item name="android:minHeight">12dp</item>
+    </style>
+
+    <style name="UsageCustomBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_bar_usage</item>
+        <item name="android:minHeight">4dp</item>
+    </style>
+
+    <style name="TextInputDropDownAppearance" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <!-- reference our hint & api styles -->
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="boxStrokeColor">@color/colorPantone11C</item>
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="hintTextColor">@color/colorPantone11C</item>
+        <item name="colorControlActivated">@color/colorPantone11C</item>
+        <item name="colorControlHighlight">@color/colorPantone11C</item>
+        <item name="android:textColorHint">@color/colorPantone11C</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/keyline_1</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/keyline_1</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/keyline_1</item>
+        <item name="boxCornerRadiusTopStart">@dimen/keyline_1</item>
+        <item name="errorTextAppearance">@style/TextViewAppearance</item>
+        <item name="helperTextTextAppearance">@style/HelperTextAppearance</item>
+    </style>
+
+    <style name="ContactPickerTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">?attr/colorPrimary</item>
+        <item name="colorPrimaryDark">?attr/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MaterialSnackbarTheme" parent="@style/Widget.MaterialComponents.Snackbar">
+        <!-- <item name="backgroundTint">#00cc77</item>-->
+        <!-- <item name="android:background">@drawable/snackbar_background</item>-->
+        <item name="android:background">#00cc77</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="actionTextColorAlpha">1.0</item>
+    </style>
+
+    <style name="CustomProgressDialog" parent="android:Theme.Holo.Light.Dialog.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+</resources>

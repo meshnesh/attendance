@@ -9,10 +9,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.mw.churchattendance.R
 import com.mw.churchattendance.data.local.entity.NfcTag
 import com.mw.churchattendance.data.local.entity.TagType
 import com.mw.churchattendance.ui.taglist.TagViewModel
+import com.mw.churchattendance.util.NfcTagScannedListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -95,6 +98,18 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     open fun onNfcTagScanned(tagId: String?) {
-        Toast.makeText(this, "Scanned Tag: $tagId", Toast.LENGTH_SHORT).show()
+        if (tagId == null) return
+
+        // Try to pass the tag ID to the visible fragment
+        val currentFragment: Fragment? = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+            ?.childFragmentManager
+            ?.fragments
+            ?.firstOrNull()
+
+        if (currentFragment is NfcTagScannedListener) {
+            currentFragment.onNfcTagScanned(tagId)
+        } else {
+            Toast.makeText(this, "Scanned Tag: $tagId", Toast.LENGTH_SHORT).show()
+        }
     }
 }

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt)
 }
 
@@ -38,6 +39,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -54,6 +56,7 @@ dependencies {
     implementation(libs.room.paging)
 
     implementation(libs.hilt.android)
+    implementation(libs.timber)
 
     ksp(libs.hilt.compiler)
     ksp(libs.room.ksp)

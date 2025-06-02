@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:textAppearance">?textAppearanceButton</item>
+        <item name="android:fontFamily">@font/futura_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Base.Button.Icon" parent="Widget.MaterialComponents.Button.Icon">
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:textAppearance">?textAppearanceButton</item>
+        <item name="android:fontFamily">@font/futura_medium</item>
+        <item name="iconSize">@dimen/keyline_5</item>
+        <item name="iconTint">@null</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Base.Button.Outline" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:textAppearance">?textAppearanceButton</item>
+        <item name="android:fontFamily">@font/futura_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Base.Button.Clear" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:minWidth">@dimen/minimum_button_size</item>
+        <item name="android:textAppearance">?textAppearanceButton</item>
+        <item name="android:fontFamily">@font/futura_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Green Button -->
+    <style name="PrimaryButton" parent="Base.Button">
+        <item name="android:textColor">@color/color_on_primary</item>
+        <item name="backgroundTint">@drawable/button_color_state</item>
+    </style>
+
+    <style name="PrimaryButton.Icon" parent="Base.Button.Icon" />
+
+    <style name="PrimaryButton.Clear" parent="Base.Button.Clear" />
+
+    <!-- Small Green Button -->
+    <style name="PrimaryButton.Small">
+        <item name="android:minWidth">@dimen/minimum_small_button_size</item>
+        <item name="android:layout_height">@dimen/small_button_height</item>
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <style name="PrimaryButton.Outline" parent="Base.Button.Outline">
+        <item name="backgroundTint">@color/color_surface</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="strokeColor">@color/color_primary</item>
+    </style>
+
+    <style name="PrimaryButton.Outline.Small">
+        <item name="android:minWidth">@dimen/minimum_small_button_size</item>
+        <item name="android:layout_height">@dimen/small_button_height</item>
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <!-- Default : Grey Background with White Text -->
+    <style name="SecondaryButton" parent="Base.Button">
+        <item name="backgroundTint">@color/colorPantone9C</item>
+        <item name="android:textColor">@color/color_surface</item>
+    </style>
+
+    <!-- White Background with Green Text -->
+    <style name="SecondaryButton.White" parent="Base.Button">
+        <item name="backgroundTint">@color/color_surface</item>
+        <item name="android:textColor">@color/color_primary</item>
+    </style>
+
+    <!-- Red Background with White Text -->
+    <style name="SecondaryButton.Red">
+        <item name="backgroundTint">@color/color_error</item>
+        <item name="android:textColor">@color/color_surface</item>
+    </style>
+
+    <!-- Red Background with White Text -->
+    <style name="SecondaryButton.variant">
+        <item name="backgroundTint">@color/color_secondary</item>
+        <item name="android:textColor">@color/color_surface</item>
+    </style>
+
+    <style name="SecondaryButton.Small">
+        <item name="android:minWidth">@dimen/minimum_small_button_size</item>
+        <item name="android:layout_height">@dimen/small_button_height</item>
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <!-- Secondary Button with Icon -->
+    <style name="SecondaryButton.Icon" parent="Base.Button.Icon">
+        <item name="backgroundTint">@color/colorPantone9C</item>
+        <item name="android:textColor">@color/color_surface</item>
+    </style>
+
+    <style name="SecondaryButton.Icon.White">
+        <item name="backgroundTint">@color/color_surface</item>
+        <item name="android:textColor">@color/color_primary</item>
+    </style>
+
+    <style name="SecondaryButton.Icon.Red">
+        <item name="backgroundTint">@color/color_error</item>
+        <item name="android:textColor">@color/color_surface</item>
+    </style>
+
+    <!-- Secondary Button with Outline -->
+    <style name="SecondaryButton.Outline" parent="Base.Button.Outline">
+        <item name="android:textColor">@color/colorPantone9C</item>
+    </style>
+
+    <style name="SecondaryButton.Outline.White">
+        <item name="android:textColor">@color/color_surface</item>
+        <item name="strokeColor">@color/color_surface</item>
+    </style>
+
+    <!-- Secondary button with no outline -->
+    <style name="SecondaryButton.Outline.None" parent="Base.Button.Outline">
+        <item name="android:textColor">@color/colorPantone9C</item>
+        <item name="strokeColor">@color/transparent_color</item>
+    </style>
+
+    <style name="SecondaryButton.Outline.Red">
+        <item name="backgroundTint">@color/color_surface</item>
+        <item name="android:textColor">@color/color_error</item>
+        <item name="strokeColor">@color/color_error</item>
+    </style>
+
+    <style name="SecondaryButton.Outline.Small">
+        <item name="android:layout_height">@dimen/small_button_height</item>
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <style name="SecondaryButton.Outline.Small.Red">
+        <item name="backgroundTint">@color/color_surface</item>
+        <item name="android:textColor">@color/color_error</item>
+        <item name="strokeColor">@color/color_error</item>
+    </style>
+
+    <!-- Clear Background -->
+    <style name="SecondaryButton.Clear" parent="Base.Button.Clear" />
+
+    <style name="SecondaryButton.Clear.Small">
+        <item name="android:minWidth">@dimen/minimum_small_button_size</item>
+        <item name="android:layout_height">@dimen/small_button_height</item>
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <style name="SecondaryButton.Clear.Red">
+        <item name="android:textColor">@color/color_error</item>
+    </style>
+
+    <style name="CompletionScreenActionButton" parent="Base.Button">
+        <item name="backgroundTint">@color/completion_screen_grey</item>
+        <item name="android:layout_marginTop">@dimen/margin_padding_size_x_small</item>
+        <item name="elevation">0dp</item>
+        <item name="tint">@null</item>
+    </style>
+
+    <!-- Generic Icon Only Button -->
+    <style name="IconButton" parent="Base.Button.Clear">
+        <item name="backgroundTint">@color/transparent_color</item>
+        <item name="iconPadding">@dimen/zero_dimension</item>
+        <item name="android:insetTop">@dimen/zero_dimension</item>
+        <item name="android:insetBottom">@dimen/zero_dimension</item>
+        <item name="android:paddingLeft">@dimen/margin_padding_size_medium</item>
+        <item name="android:paddingRight">@dimen/margin_padding_size_medium</item>
+        <item name="android:minWidth">@dimen/standard_touch_size</item>
+        <item name="android:minHeight">@dimen/standard_touch_size</item>
+    </style>
+
+</resources>

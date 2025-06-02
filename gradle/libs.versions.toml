@@ -11,6 +11,7 @@ room = "2.7.1"
 ksp = "2.0.21-1.0.27"
 hilt = "2.51.1"
 hiltCompiler = "2.51.1"
+timber = "5.0.1"
 
 
 [libraries]
@@ -34,8 +35,12 @@ room-ksp = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
 room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
 
+#logging
+timber = { group = "com.jakewharton.timber:timber", name = "timber", version.ref = "timber" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }

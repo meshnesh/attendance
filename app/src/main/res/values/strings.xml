@@ -6,4 +6,13 @@
     <string name="check_out">Check Out</string>
     <string name="tag_id">Tag ID</string>
     <string name="status">Status</string>
+    <string name="save">Save</string>
+    <string name="parent_info">Parent Info*</string>
+    <string name="parent_s_name">Parent\'s Name</string>
+    <string name="child_info">Child Info*</string>
+    <string name="name">Name</string>
+    <string name="select_date_of_birth">Select Date of Birth</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="scan_parent_fob">Scan parent fob*</string>
+    <string name="scan_wristband">Scan wristband*</string>
 </resources>

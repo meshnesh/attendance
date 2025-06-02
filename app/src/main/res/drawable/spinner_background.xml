@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="0.1dp" android:color="?attr/colorOnBackground" />
+                    <corners android:radius="@dimen/keyline_1" />
+                    <padding android:right="@dimen/margin_padding_size_medium" />
+                </shape>
+            </item>
+            <item>
+                <bitmap android:gravity="center|right" android:src="@drawable/chevron_down" android:tint="?attr/colorOnSurface" />
+            </item>
+        </layer-list>
+    </item>
+
+</selector>

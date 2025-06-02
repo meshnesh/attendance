@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.mwTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.mwTheme.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.mwTheme.MediumComponent</item>
+        <item name="android:fontFamily">@font/futura_book</item>
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="ThemeOverlay.mwTheme.TextInputLayout" parent="">
+        <item name="colorPrimary">?attr/colorOnSurface</item>
+        <item name="colorOnSurface">@color/color_on_background</item>
+        <item name="colorError">@color/color_error</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.type.mwTheme.Subtitle1</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.type.mwTheme.Caption</item>
+        <item name="editTextStyle">@style/ThemeOverlay.mwTheme.TextInputEditText</item>
+    </style>
+
+    <style name="ThemeOverlay.mwTheme.TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textSize">@dimen/text_size_body2</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="ThemeOverlay.mwTheme.AutoCompleteTextView" parent="Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox">
+        <item name="android:textSize">@dimen/text_size_body2</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+</resources>
