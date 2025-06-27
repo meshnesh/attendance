@@ -21,7 +21,7 @@
             android:id="@+id/tilChildName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_size_small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvChildHeader">
@@ -35,17 +35,58 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tvChildDob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_date_of_birth"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilChildName" />
+
+        <TextView
             android:id="@+id/tvDob"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="?attr/selectableItemBackground"
             android:padding="12dp"
-            android:text="@string/select_date_of_birth"
+            android:text="@string/_01_jan_2025"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilChildName" />
+            app:layout_constraintTop_toBottomOf="@id/tvChildDob" />
+
+        <TextView
+            android:id="@+id/tvChildClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/child_class"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_padding_size_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDob" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilChildClass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvChildClass">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etChildClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/discipleship"
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:inputType="none"
+                android:text="" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tvWristbandTag"
@@ -56,9 +97,11 @@
             android:padding="12dp"
             android:text="@string/scan_wristband"
             android:textColor="@android:color/black"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDob" />
+            app:layout_constraintTop_toBottomOf="@id/tilChildClass" />
 
         <!-- Section: Parent Info -->
         <TextView
@@ -116,6 +159,8 @@
             android:text="@string/scan_parent_fob"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            android:clickable="true"
+            android:focusable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilParentPhone" />
 

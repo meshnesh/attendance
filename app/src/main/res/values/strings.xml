@@ -15,4 +15,13 @@
     <string name="phone_number">Phone Number</string>
     <string name="scan_parent_fob">Scan parent fob*</string>
     <string name="scan_wristband">Scan wristband*</string>
+    <string name="child_class">Child Class</string>
+    <string name="discipleship">Discipleship</string>
+    <string name="scan_a_wristband_or_fob_to_begin">Scan a wristband or fob to begin</string>
+    <string name="_01_jan_2025">01 Jan 2025</string>
+    <string name="yes">Yes</string>
+    <string name="close">Close</string>
+    <string name="ok">OK\n</string>
+    <string name="dialog_success">Success</string>
+    <string name="attendance_list">Attendance List</string>
 </resources>

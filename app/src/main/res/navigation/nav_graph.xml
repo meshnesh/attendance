@@ -17,6 +17,18 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/action_homeFragment_to_attendanceListFragment"
+            app:destination="@id/attendanceListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left" />
     </fragment>
 
     <fragment
@@ -24,5 +36,17 @@
         android:name="com.mw.churchattendance.ui.taglist.TagListFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.mw.churchattendance.ui.profile.ProfileFragment"
+        android:label="Add Child"
+        tools:layout="@layout/fragment_add_child" />
+
+    <fragment
+        android:id="@+id/attendanceListFragment"
+        android:name="com.mw.churchattendance.ui.attendance.AttendanceListFragment"
+        android:label="Attendance List"
+        tools:layout="@layout/fragment_attendance_list" />
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.mw.churchattendance.data.local.entity
+package com.mw.churchattendance.data.local.entity.tags
 
 import androidx.room.Entity
 import androidx.room.Index

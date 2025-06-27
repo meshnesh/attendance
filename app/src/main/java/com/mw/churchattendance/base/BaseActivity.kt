@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.mw.churchattendance.R
-import com.mw.churchattendance.data.local.entity.NfcTag
-import com.mw.churchattendance.data.local.entity.TagType
+import com.mw.churchattendance.data.local.entity.tags.NfcTag
+import com.mw.churchattendance.data.local.entity.tags.TagType
 import com.mw.churchattendance.ui.taglist.TagViewModel
 import com.mw.churchattendance.util.NfcTagScannedListener
 import dagger.hilt.android.AndroidEntryPoint

@@ -56,7 +56,9 @@ dependencies {
     implementation(libs.room.paging)
 
     implementation(libs.hilt.android)
-    implementation(libs.timber)
+//    implementation(libs.timber)
+
+    implementation(libs.lottie)
 
     ksp(libs.hilt.compiler)
     ksp(libs.room.ksp)

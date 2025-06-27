@@ -22,7 +22,7 @@ class MainActivity : BaseActivity() {
     override fun onNfcTagScanned(tagId: String?) {
         super.onNfcTagScanned(tagId)
         tagId?.let {
-            handleScannedTag(it)
+//            handleScannedTag(it)
         }
     }
 }

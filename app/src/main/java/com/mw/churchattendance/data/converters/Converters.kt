@@ -1,7 +1,7 @@
 package com.mw.churchattendance.data.converters
 
 import androidx.room.TypeConverter
-import com.mw.churchattendance.data.local.entity.TagType
+import com.mw.churchattendance.data.local.entity.tags.TagType
 
 class Converters {
     @TypeConverter

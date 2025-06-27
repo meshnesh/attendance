@@ -5,13 +5,14 @@ coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-appcompat = "1.7.0"
+appcompat = "1.7.1"
 material = "1.12.0"
-room = "2.7.1"
+room = "2.7.2"
 ksp = "2.0.21-1.0.27"
 hilt = "2.51.1"
 hiltCompiler = "2.51.1"
-timber = "5.0.1"
+#timber = "5.0.1"
+lottie = "6.3.0" # or latest
 
 
 [libraries]
@@ -34,9 +35,10 @@ room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-ksp = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
 room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 
 #logging
-timber = { group = "com.jakewharton.timber:timber", name = "timber", version.ref = "timber" }
+#timber = { group = "com.jakewharton.timber:timber", name = "timber", version.ref = "timber" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

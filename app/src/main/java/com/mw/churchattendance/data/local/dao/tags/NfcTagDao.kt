@@ -1,4 +1,4 @@
-package com.mw.churchattendance.data.local.dao
+package com.mw.churchattendance.data.local.dao.tags
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,13 +6,13 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.mw.churchattendance.data.local.entity.NfcTag
+import com.mw.churchattendance.data.local.entity.tags.NfcTag
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NfcTagDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertTag(tag: NfcTag)
 
     @Update

@@ -2,7 +2,10 @@ package com.mw.churchattendance.di
 
 import android.content.Context
 import androidx.room.Room
-import com.mw.churchattendance.data.local.dao.NfcTagDao
+import com.mw.churchattendance.data.local.dao.attendance.AttendanceDao
+import com.mw.churchattendance.data.local.dao.child.ChildDao
+import com.mw.churchattendance.data.local.dao.parent.ParentDao
+import com.mw.churchattendance.data.local.dao.tags.NfcTagDao
 import com.mw.churchattendance.data.local.db.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -27,4 +30,10 @@ object DatabaseModule {
 
     @Provides
     fun provideNfcTagDao(db: AppDatabase): NfcTagDao = db.nfcTagDao()
+    @Provides
+    fun provideChildDao(db: AppDatabase): ChildDao = db.childDao()
+    @Provides
+    fun provideParentDao(db: AppDatabase): ParentDao = db.parentDao()
+    @Provides
+    fun provideAttendanceDao(db: AppDatabase): AttendanceDao = db.attendanceDao()
 }

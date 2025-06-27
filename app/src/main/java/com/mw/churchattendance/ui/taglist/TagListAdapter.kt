@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mw.churchattendance.R
-import com.mw.churchattendance.data.local.entity.NfcTag
+import com.mw.churchattendance.data.local.entity.tags.NfcTag
 
 class TagListAdapter : ListAdapter<NfcTag, TagListAdapter.TagViewHolder>(DiffCallback()) {
 
