@@ -60,7 +60,9 @@ class HomeViewModel @Inject constructor(
 
     val lastCheckInText = scannedChild.map { childWithParent ->
         childWithParent?.child?.lastCheckIn?.let {
-            "Last Checked In: " + SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault()).format(Date(it))
+            "Last Checked In: " + SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault()).format(
+                Date(it)
+            )
         } ?: "Last Checked In: Never"
     }.stateIn(viewModelScope, SharingStarted.Eagerly, "")
 
@@ -96,7 +98,10 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun fetchChildWithParentByWristbandId(wristbandId: String, callback: (ChildWithParent?) -> Unit) {
+    fun fetchChildWithParentByWristbandId(
+        wristbandId: String,
+        callback: (ChildWithParent?) -> Unit
+    ) {
         viewModelScope.launch {
             val result = repository.getChildWithParent(wristbandId)
             callback(result)

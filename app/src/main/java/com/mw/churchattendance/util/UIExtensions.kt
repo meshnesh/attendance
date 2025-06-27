@@ -99,7 +99,6 @@ fun Dialog?.autoDismiss(owner: LifecycleOwner, timeMillis: Long) {
 }
 
 
-
 fun Fragment.getColorFromAttr(@AttrRes attrRes: Int): Int {
     val typedValue = TypedValue()
     requireContext().theme.resolveAttribute(attrRes, typedValue, true)

@@ -1,9 +1,8 @@
 package com.mw.churchattendance.ui.main
 
 import android.os.Bundle
-import android.util.Log
-import com.mw.churchattendance.databinding.ActivityMainBinding
 import com.mw.churchattendance.base.BaseActivity
+import com.mw.churchattendance.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

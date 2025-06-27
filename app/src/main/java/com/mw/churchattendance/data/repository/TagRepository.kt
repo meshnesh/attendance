@@ -16,7 +16,10 @@ import javax.inject.Singleton
 
 @Singleton
 class TagRepository @Inject constructor(
-    private val dao: NfcTagDao, private val childDao: ChildDao, private val parentDao: ParentDao, private val attendanceDao: AttendanceDao
+    private val dao: NfcTagDao,
+    private val childDao: ChildDao,
+    private val parentDao: ParentDao,
+    private val attendanceDao: AttendanceDao
 ) {
     val allTags: Flow<List<NfcTag>> = dao.getAllTags()
 

@@ -80,7 +80,8 @@ open class BaseActivity : AppCompatActivity() {
                             lastActionTimestamp = now
                         )
                     )
-                    Toast.makeText(this@BaseActivity, "Tag added & checked in", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@BaseActivity, "Tag added & checked in", Toast.LENGTH_SHORT)
+                        .show()
                 } else {
                     val updated = existingTag.copy(
                         isCheckedIn = !existingTag.isCheckedIn,
@@ -100,10 +101,11 @@ open class BaseActivity : AppCompatActivity() {
         if (tagId == null) return
 
         // Try to pass the tag ID to the visible fragment
-        val currentFragment: Fragment? = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-            ?.childFragmentManager
-            ?.fragments
-            ?.firstOrNull()
+        val currentFragment: Fragment? =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+                ?.childFragmentManager
+                ?.fragments
+                ?.firstOrNull()
 
         if (currentFragment is NfcTagScannedListener) {
             currentFragment.onNfcTagScanned(tagId)

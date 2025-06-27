@@ -2,17 +2,13 @@ package com.mw.churchattendance.ui.profile
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.text.Spannable
 import android.text.SpannableString
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.mw.churchattendance.R
@@ -28,10 +24,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
-import kotlin.getValue
 
 @AndroidEntryPoint
-class ProfileFragment: BaseFragment(), NfcTagScannedListener {
+class ProfileFragment : BaseFragment(), NfcTagScannedListener {
 
     lateinit var binding: FragmentAddChildBinding
     private var scanningFor: ScanningTarget? = null
@@ -79,7 +74,8 @@ class ProfileFragment: BaseFragment(), NfcTagScannedListener {
 
             if (childName.isBlank() || childClass.isBlank() || parentName.isBlank() || parentPhone.isBlank() || childWristbandId == null || parentFobId == null
             ) {
-                Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
@@ -107,7 +103,10 @@ class ProfileFragment: BaseFragment(), NfcTagScannedListener {
                     findNavController().navigateUp()
                 }
             )
-            Log.d("TAG_DEBUG", "Collected Child details: $child and this is the parents details $parent")
+            Log.d(
+                "TAG_DEBUG",
+                "Collected Child details: $child and this is the parents details $parent"
+            )
         }
     }
 
@@ -117,12 +116,18 @@ class ProfileFragment: BaseFragment(), NfcTagScannedListener {
                 childWristbandId = tagId
                 binding.tvWristbandTag.text = "Child Wristband: $tagId"
             }
+
             ScanningTarget.FOB -> {
                 parentFobId = tagId
                 binding.tvFobTag.text = "Parent Fob: $tagId"
             }
+
             null -> {
-                Toast.makeText(requireContext(), "Please select wristband or fob first", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Please select wristband or fob first",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

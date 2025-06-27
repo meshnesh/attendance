@@ -3,100 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-        <data>
-                <import type="android.view.View" />
+    <data>
 
-                <variable
-                    name="viewModel"
-                    type="com.mw.churchattendance.ui.home.HomeViewModel" />
-        </data>
+        <import type="android.view.View" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            tools:context=".ui.home.HomeFragment">
+        <variable
+            name="viewModel"
+            type="com.mw.churchattendance.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".ui.home.HomeFragment">
+
+        <TextView
+            android:id="@+id/tvScanPrompt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/scan_a_wristband_or_fob_to_begin"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardChildDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvScanPrompt">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/tvScanPrompt"
-                    android:layout_width="0dp"
+                    android:id="@+id/tvChildName"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/scan_a_wristband_or_fob_to_begin"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:text="" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardChildDetails"
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tvChildClass"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="8dp"
-                    app:layout_constraintTop_toBottomOf="@id/tvScanPrompt"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    android:text='Class: ' />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
+                <TextView
+                    android:id="@+id/tvParentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                                <TextView
-                                    android:id="@+id/tvChildName"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="" />
+                <TextView
+                    android:id="@+id/tvCheckinStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                                <TextView
-                                    android:id="@+id/tvChildClass"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text='Class: ' />
-
-                                <TextView
-                                    android:id="@+id/tvParentName"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
-
-                                <TextView
-                                    android:id="@+id/tvCheckinStatus"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
-
-                                <TextView
-                                    android:id="@+id/tvLastCheckedIn"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@{viewModel.lastCheckInText}" />
-
-                        </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAction"
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/tvLastCheckedIn"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text=""
-                    app:layout_constraintTop_toBottomOf="@id/cardChildDetails"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:text="@{viewModel.lastCheckInText}" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAttendance"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/attendance_list"
-                    app:layout_constraintTop_toBottomOf="@id/btnAction"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-<!--                android:enabled="@{viewModel.child != null}"-->
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardChildDetails" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAttendance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/attendance_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAction" />
+
+        <!--                android:enabled="@{viewModel.child != null}"-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

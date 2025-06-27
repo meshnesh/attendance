@@ -54,13 +54,15 @@ abstract class BaseDialogHelper() {
     }
 
     //  cancel listener
-    open fun onCancelListener(func: () -> Unit): AlertDialog.Builder? = builder.setOnCancelListener {
-        func()
-    }
+    open fun onCancelListener(func: () -> Unit): AlertDialog.Builder? =
+        builder.setOnCancelListener {
+            func()
+        }
 
     // dismiss listener
-    open fun onDismissListener(func: () -> Unit): AlertDialog.Builder? = builder.setOnDismissListener {
-        func()
-    }
+    open fun onDismissListener(func: () -> Unit): AlertDialog.Builder? =
+        builder.setOnDismissListener {
+            func()
+        }
 
 }

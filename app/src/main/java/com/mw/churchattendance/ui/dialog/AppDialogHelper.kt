@@ -35,7 +35,12 @@ class AppDialogHelper(context: Context) :
 
     //  dialog view
     override val dialogView: View by lazy {
-        binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.dialog_message, null, false)
+        binding = DataBindingUtil.inflate(
+            LayoutInflater.from(context),
+            R.layout.dialog_message,
+            null,
+            false
+        )
         binding.root
     }
 
@@ -110,6 +115,7 @@ class AppDialogHelper(context: Context) :
                     binding.dialogImage.setAnimation(lottieIcon!!)
                     binding.dialogImage.playAnimation()
                 }
+
                 drawableIcon != null -> binding.dialogImage.setImageResource(drawableIcon!!)
             }
         }
