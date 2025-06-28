@@ -44,54 +44,54 @@ class HomeFragment : Fragment(), NfcTagScannedListener {
 
 override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    binding.viewModel = viewModel
+//    binding.viewModel = viewModel
     binding.lifecycleOwner = viewLifecycleOwner
 
 
-    // Observe scanned child and update UI
-    viewLifecycleOwner.lifecycleScope.launch {
-        repeatOnLifecycle(Lifecycle.State.STARTED) {
-            viewModel.scannedChild.collect { scanned ->
-                if (scanned != null) {
-                    val child = scanned.child
-                    val parent = scanned.parent
-
-                    binding.tvChildName.text = "Name: ${child.name}"
-                    binding.tvChildClass.text = "Class: ${child.childClass}"
-                    binding.tvParentName.text = "Parent: ${parent.name}"
-                    binding.tvCheckinStatus.text =
-                        if (child.isCheckedIn) "Checked In" else "Checked Out"
-                    binding.tvLastCheckedIn.text =
-                        viewModel.lastCheckInText.value
-
-                    binding.btnAction.text =
-                        if (child.isCheckedIn) "Check Out" else "Check In"
-                    binding.btnAction.setOnClickListener {
-                        viewModel.checkInChild(child)
-                        Toast.makeText(
-                            requireContext(),
-                            "Checked in ${child.name}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                } else {
-                    // Reset UI if nothing scanned
-                    binding.tvChildName.text = ""
-                    binding.tvChildClass.text = ""
-                    binding.tvParentName.text = ""
-                    binding.tvCheckinStatus.text = ""
-                    binding.tvLastCheckedIn.text = ""
-                    binding.btnAction.text = "Scan to Check In"
-                    binding.btnAction.setOnClickListener(null)
-                }
-            }
-        }
-    }
-
-    binding.btnAttendance.setOnClickListener{
-        findNavController().navigate(R.id.action_homeFragment_to_attendanceListFragment)
-    }
+//    // Observe scanned child and update UI
+//    viewLifecycleOwner.lifecycleScope.launch {
+//        repeatOnLifecycle(Lifecycle.State.STARTED) {
+//            viewModel.scannedChild.collect { scanned ->
+//                if (scanned != null) {
+//                    val child = scanned.child
+//                    val parent = scanned.parent
+//
+//                    binding.tvChildName.text = "Name: ${child.name}"
+//                    binding.tvChildClass.text = "Class: ${child.childClass}"
+//                    binding.tvParentName.text = "Parent: ${parent.name}"
+//                    binding.tvCheckinStatus.text =
+//                        if (child.isCheckedIn) "Checked In" else "Checked Out"
+//                    binding.tvLastCheckedIn.text =
+//                        viewModel.lastCheckInText.value
+//
+//                    binding.btnAction.text =
+//                        if (child.isCheckedIn) "Check Out" else "Check In"
+//                    binding.btnAction.setOnClickListener {
+//                        viewModel.checkInChild(child)
+//                        Toast.makeText(
+//                            requireContext(),
+//                            "Checked in ${child.name}",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+//
+//                } else {
+//                    // Reset UI if nothing scanned
+//                    binding.tvChildName.text = ""
+//                    binding.tvChildClass.text = ""
+//                    binding.tvParentName.text = ""
+//                    binding.tvCheckinStatus.text = ""
+//                    binding.tvLastCheckedIn.text = ""
+//                    binding.btnAction.text = "Scan to Check In"
+//                    binding.btnAction.setOnClickListener(null)
+//                }
+//            }
+//        }
+//    }
+//
+//    binding.btnAttendance.setOnClickListener{
+//        findNavController().navigate(R.id.action_homeFragment_to_attendanceListFragment)
+//    }
 }
 
     override fun onNfcTagScanned(tagId: String) {
@@ -122,22 +122,22 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
                 }
             } else {
                 // Second try: is it a child's wristband for check-in?
-                viewModel.fetchChildWithParentByWristbandId(tagId) { checkInResult ->
-                    if (checkInResult != null) {
-                        val child = checkInResult.child
-                        val parent = checkInResult.parent
-
-                        // Update UI with scanned child info
-                        binding.tvChildName.text = "Name: ${child.name}"
-                        binding.tvChildClass.text = "Class: ${child.childClass}"
-                        binding.tvParentName.text = "Parent: ${parent.name}"
-
-                        viewModel.setScannedChild(checkInResult) // Enables check-in button
-                    } else {
-                        // Not found in DB — go to profile creation
-                        findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-                    }
-                }
+//                viewModel.fetchChildWithParentByWristbandId(tagId) { checkInResult ->
+//                    if (checkInResult != null) {
+//                        val child = checkInResult.child
+//                        val parent = checkInResult.parent
+//
+//                        // Update UI with scanned child info
+//                        binding.tvChildName.text = "Name: ${child.name}"
+//                        binding.tvChildClass.text = "Class: ${child.childClass}"
+//                        binding.tvParentName.text = "Parent: ${parent.name}"
+//
+//                        viewModel.setScannedChild(checkInResult) // Enables check-in button
+//                    } else {
+//                        // Not found in DB — go to profile creation
+//                        findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+//                    }
+//                }
             }
         }
     }

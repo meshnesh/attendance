@@ -24,4 +24,10 @@
     <string name="ok">OK\n</string>
     <string name="dialog_success">Success</string>
     <string name="attendance_list">Attendance List</string>
+    <string name="bible_verse">Proverbs 22:6\nTrain up a child in the way he should go; even when he is old he will not depart from it.</string>
+    <string name="hi_james">Hi, James</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="r_kids">R-Kids</string>
+    <string name="members">Members</string>
+    <string name="assemblies">Assemblies</string>
 </resources>

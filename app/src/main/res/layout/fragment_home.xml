@@ -1,103 +1,490 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="viewModel"
-            type="com.mw.churchattendance.ui.home.HomeViewModel" />
-    </data>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        tools:context=".ui.home.HomeFragment">
+        android:fitsSystemWindows="true">
 
-        <TextView
-            android:id="@+id/tvScanPrompt"
+        <!-- Header Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHeader"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/scan_a_wristband_or_fob_to_begin"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="220dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardChildDetails"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvScanPrompt">
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                app:shapeAppearanceOverlay="@style/CardBottomOnlyRounded">
+
+                <!-- Background Image -->
+                <ImageView
+                    android:id="@+id/bgImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg_frame"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Overlay Content -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+
+                    <!-- Profile Icon -->
+                    <ImageView
+                        android:id="@+id/profileIcon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_memoji"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Bell Icon -->
+                    <ImageView
+                        android:id="@+id/notificationIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_bell"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- Greeting -->
+                    <TextView
+                        android:id="@+id/greeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hi_james"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/profileIcon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Welcome Text -->
+                    <TextView
+                        android:id="@+id/welcomeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/welcome_back"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/greeting"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Verse Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/verseCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp"
+                        app:cardBackgroundColor="@color/card_overlay"
+                        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="12dp"
+                            android:text="@string/bible_verse"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:shadowColor="#33000000"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1.5"/>
+                    </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Scan Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/scanCard"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="@dimen/margin_padding_size_x_small"
+            app:cardElevation="4dp"
+            android:layout_margin="@dimen/margin_padding_size_medium"
+            app:layout_constraintTop_toBottomOf="@id/cardHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:id="@+id/scanIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_key_fob"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:id="@+id/scanText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scan_a_wristband_or_fob_to_begin"
+                    android:textColor="@color/color_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/scanIcon"
+                    app:layout_constraintEnd_toStartOf="@+id/parentScanIcon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="12dp" />
+
+                <ImageView
+                    android:id="@+id/parentScanIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_child_bracelet"
+                    app:layout_constraintStart_toEndOf="@+id/scanText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/favouriteDetails"
+            android:layout_width="@dimen/zero_dimension"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_size_medium"
+            android:animateLayoutChanges="true"
+            android:paddingBottom="@dimen/margin_padding_size_medium"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scanCard">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCardInternalStart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero_dimension"
                 android:orientation="vertical"
-                android:padding="16dp">
+                app:layout_constraintGuide_percent="0.05" />
 
-                <TextView
-                    android:id="@+id/tvChildName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCardInternalEnd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero_dimension"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
 
-                <TextView
-                    android:id="@+id/tvChildClass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text='Class: ' />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start_card"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero_dimension"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.50" />
 
-                <TextView
-                    android:id="@+id/tvParentName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdPressure"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:layout_marginEnd="@dimen/margin_padding_size_medium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_start_card"
+                app:layout_constraintStart_toStartOf="@id/guidelineCardInternalStart"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tvCheckinStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/manage_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    app:layout_constrainedHeight="true">
 
-                <TextView
-                    android:id="@+id/tvLastCheckedIn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.lastCheckInText}" />
+                    <ImageView
+                        android:id="@+id/manageIcon"
+                        android:layout_width="@dimen/small_icons"
+                        android:layout_height="@dimen/small_icons"
+                        android:layout_marginTop="@dimen/margin_padding_size_medium"
+                        android:contentDescription="@string/members"
+                        android:src="@drawable/ic_members"
+                        android:textAppearance="?textAppearanceBody2"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/members"
+                        android:textAppearance="?textAppearanceBody2"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintTop_toBottomOf="@id/manageIcon" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAction"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardChildDetails" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAttendance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/attendance_list"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnAction" />
+            </com.google.android.material.card.MaterialCardView>
 
-        <!--                android:enabled="@{viewModel.child != null}"-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardProducts"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                app:layout_constraintEnd_toEndOf="@id/guidelineCardInternalEnd"
+                app:layout_constraintStart_toEndOf="@+id/guideline_start_card"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/product_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    app:layout_constrainedHeight="true">
+
+                    <ImageView
+                        android:id="@+id/productIcon"
+                        android:layout_width="@dimen/small_icons"
+                        android:layout_height="@dimen/small_icons"
+                        android:layout_marginTop="@dimen/margin_padding_size_medium"
+                        android:contentDescription="@string/r_kids"
+                        android:gravity="center"
+                        android:src="@drawable/ic_r_kids"
+                        android:textAppearance="?textAppearanceBody2"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/humidity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/r_kids"
+                        android:textAppearance="?textAppearanceBody2"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintTop_toBottomOf="@id/productIcon" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdAssemblies"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                android:layout_marginEnd="@dimen/margin_padding_size_medium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_start_card"
+                app:layout_constraintStart_toStartOf="@id/guidelineCardInternalStart"
+                app:layout_constraintTop_toBottomOf="@+id/cdPressure">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/csAssemblies"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    app:layout_constrainedHeight="true">
+
+                    <ImageView
+                        android:id="@+id/icAssemblies"
+                        android:layout_width="@dimen/small_icons"
+                        android:layout_height="@dimen/small_icons"
+                        android:layout_marginTop="@dimen/margin_padding_size_medium"
+                        android:contentDescription="@string/members"
+                        android:src="@drawable/ic_assemblies"
+                        android:textAppearance="?textAppearanceBody2"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/assemblies"
+                        android:textAppearance="?textAppearanceBody2"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintTop_toBottomOf="@id/icAssemblies" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdAttendance"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="@dimen/margin_padding_size_medium"
+                android:layout_marginTop="@dimen/margin_padding_size_medium"
+                app:layout_constraintEnd_toEndOf="@id/guidelineCardInternalEnd"
+                app:layout_constraintStart_toEndOf="@+id/guideline_start_card"
+                app:layout_constraintTop_toBottomOf="@+id/cardProducts">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cdAttendanceList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    app:layout_constrainedHeight="true">
+
+                    <ImageView
+                        android:id="@+id/ic_list"
+                        android:layout_width="@dimen/small_icons"
+                        android:layout_height="@dimen/small_icons"
+                        android:layout_marginTop="@dimen/margin_padding_size_medium"
+                        android:contentDescription="@string/r_kids"
+                        android:gravity="center"
+                        android:src="@drawable/ic_attendance"
+                        android:textAppearance="?textAppearanceBody2"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/icAttendance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/r_kids"
+                        android:textAppearance="?textAppearanceBody2"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintTop_toBottomOf="@id/ic_list" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+<!--    <data>-->
+
+<!--        <import type="android.view.View" />-->
+
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.mw.churchattendance.ui.home.HomeViewModel" />-->
+<!--    </data>-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:padding="16dp"-->
+<!--        tools:context=".ui.home.HomeFragment">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvScanPrompt"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/scan_a_wristband_or_fob_to_begin"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/cardChildDetails"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:cardElevation="4dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tvScanPrompt">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:padding="16dp">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvChildName"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvChildClass"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text='Class: ' />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvParentName"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvCheckinStatus"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvLastCheckedIn"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@{viewModel.lastCheckInText}" />-->
+
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnAction"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:text=""-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/cardChildDetails" />-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnAttendance"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:text="@string/attendance_list"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/btnAction" />-->
+
+<!--        &lt;!&ndash;                android:enabled="@{viewModel.child != null}"&ndash;&gt;-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--</layout>-->

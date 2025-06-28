@@ -17,6 +17,11 @@
           - https://material.io/guidelines/style/typography.html#typography-typeface
       -->
 
+    <dimen name="small_button_width">40dp</dimen>
+    <dimen name="small_icons">32dp</dimen>
+    <dimen name="medium_icon">40dp</dimen>
+
+
     <dimen name="zero_dimension">0dp</dimen>
     <dimen name="one_dimension">1dp</dimen>
     <dimen name="component_label_horizontal_margin">@dimen/keyline_4</dimen>

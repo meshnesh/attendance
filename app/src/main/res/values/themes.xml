@@ -97,6 +97,11 @@
         </item>
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
         <item name="textInputStyle">@style/Widget.mwTheme.TextInputLayout</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/color_primary</item>
+        <!-- Make status bar icons white -->
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">

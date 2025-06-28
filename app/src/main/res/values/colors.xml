@@ -14,7 +14,7 @@
     <color name="active_login">#ECF5EA</color>
     <color name="dark_pink">#FF0D8A</color>
 
-    <color name="color_primary">#000080</color>
+    <color name="color_primary">#E63582</color>
     <color name="color_primary_variant">#2b8f14</color>
     <color name="color_secondary">#ffb81c</color>
     <color name="color_secondary_variant">#fe9416</color>
@@ -72,6 +72,7 @@
     <color name="colorPantone9C">#808285</color>
     <color name="colorPantone7C">#A7A9AC</color>
 
+    <color name="card_overlay">#CCFFFFFF</color>
     <color name="transparent_color">#00FFFFFF</color>
     <color name="default_circle_indicator_fill_color">@color/colorAccent</color>
     <color name="default_circle_indicator_page_color">#58595B</color>
